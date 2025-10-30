@@ -1,0 +1,17 @@
+{
+  "players": [
+    { "id": 1, "username": "Argha", "wins": 1, "losses": 0 },
+    { "id": 2, "username": "Apu", "wins": 0, "losses": 0 }
+  ],
+  "gameHistory": [
+    {
+      "id": 1,
+      "playerId": 1,
+      "finalScore": 30,
+      "goal": 30,
+      "attemptsLeft": 2,
+      "result": "win",
+      "date": "2025-10-30T10:00:00Z"
+    }
+  ]
+}

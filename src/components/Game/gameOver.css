@@ -1,0 +1,9 @@
+.gameOver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    color: aliceblue;
+    background-color: blueviolet;
+}
