@@ -1,16 +1,79 @@
 .visualDiv {
-    background-color: rgb(160, 93, 11);
+    background-color: rgb(249, 233, 252);
     height: 400px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 5%;
+    align-items: flex-start;
+    gap: 3%;
     padding: 30px;
+    flex-wrap: wrap;
 }
 
 
-.visualDiv div {
+.visualDiv .scores{
+    flex: 2;
+    background-color: aliceblue;
+}
+
+.visualDiv h3{
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.scores-images{
     background-color: antiquewhite;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 10px;
+    border: 3px solid black;
+    padding: 10px;
     height: 300px;
-    width: 500px;
+}
+
+.attempts-images {
+    background-color: antiquewhite;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 10px;
+    border: 3px solid black;
+    padding: 10px;
+    height: 200px;
+}
+
+.visualDiv .attempts {
+    background-color: azure;
+    border: 5px solid black;
+    flex: 1;
+}
+
+
+
+
+.visual-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  background-color: black;
+  padding: 5px;
+}
+
+.visual-image.filled {
+    background-color: aquamarine;
+    border: 1px solid black;
+    padding: 1px;
+}
+
+.visual-image:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 8px gold);
+  cursor: pointer;
 }

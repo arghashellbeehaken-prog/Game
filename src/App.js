@@ -1,7 +1,6 @@
 
 import './App.css';
 import Game from './sections/game/Game';
-import Navbar from './sections/navbar/Navbar';
 
 
 

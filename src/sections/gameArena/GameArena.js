@@ -1,5 +1,5 @@
 import './gameArena.css'
-import { useContext, useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import Scores from '../../components/scores/Scores';
 import DiceRoller from '../dice/DiceRoller';
@@ -68,7 +68,7 @@ const GameArena = (props) => {
           />
         </div>
       </div>
-      <Visual />
+      <Visual goal={goal} totalScore={totalScore} attempts={attempts} />
     </div>
   );
 };
