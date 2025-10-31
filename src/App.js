@@ -1,18 +1,14 @@
 
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Game from './components/Game/Game';
-import { GameProvider } from './components/GameContext';
-import PlayerLogin from './components/Auth/PlayerLogin';
+import Game from './sections/game/Game';
+import Navbar from './sections/navbar/Navbar';
+
+
 
 function App() {
   return (
     <div className="App">
-      {/* <PlayerLogin /> */}
-      <Navbar />
-      <GameProvider>
-        <Game />
-      </GameProvider>
+      <Game />
     </div>
   );
 }
