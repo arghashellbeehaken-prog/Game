@@ -13,7 +13,7 @@ const DiceRoller = ({ attempts, setDiceScore, setAttempts }) => {
     
     setTimeout(() => {
       const die1Score = randomGenerator(MIN_DICE_SCORE, MAX_DICE_SCORE);
-      const die2Score = randomGenerator(MAX_DICE_SCORE, MAX_DICE_SCORE);
+      const die2Score = randomGenerator(MIN_DICE_SCORE, MAX_DICE_SCORE);
       setDie1(die1Score);
       setDie2(die2Score);
       setDiceScore(die1Score + die2Score);

@@ -1,13 +1,13 @@
 
 import './gameOver.css';
 
-const GameOver = ({ isWin, handleReset, totalScore, goal, attemptsLeft }) => {
+const GameOver = ({ handleReset, totalScore, goal, attemptsLeft }) => {
 
+    const isWin = (totalScore === goal);
     const gameOverImage = isWin ? '/winImage.jpg' : '/lostImage.jpg';
 
     const title = isWin ? "Congratulations! You won." : "Sorry. You Lost.";
     const desc = isWin? "Big brain moment 🧠" : "Better Luck Next Time 🙂";
-    // const result = isWin? "won-div" : "lost-div";
 
     return (
         <div className="gameOver">

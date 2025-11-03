@@ -64,7 +64,8 @@ const Game = () => {
                         setWon,
                         setLost,
                         handleReset,
-                        setIsAtLanding }
+                        setIsAtLanding
+                    }
                     } />
                 }
                 </>

@@ -24,35 +24,37 @@ const GameArena = (props) => {
   } = props.props;
   
   useEffect(() => {
-  console.log("useEffect ran");
-  console.log("attempts:", attempts);
-  console.log("diceScore:", diceScore);
-  console.log("totalScore:", totalScore);
-  console.log("isGameOver:", isGameOver);
-  console.log("...............");
+    console.log("useEffect ran");
+    console.log("attempts:", attempts);
+    console.log("diceScore:", diceScore);
+    console.log("totalScore:", totalScore);
+    console.log("isGameOver:", isGameOver);
+    console.log("...............");
 
-  if (isGameOver || diceScore === 0) return;
+    if (isGameOver || diceScore === 0) return;
 
-  // Update total score
-  if (totalScore + diceScore <= goal) {
-    setTotalScore(totalScore + diceScore);
-  }
+    const newTotal = totalScore + diceScore;
 
-  // Check for win or loss
-  if (totalScore === goal || attempts <= 0) {
-    const playerWon = totalScore + diceScore === goal;
-    setIsGameOver(true);
-    playerWon ? setWon(prev => prev + 1) : setLost(prev => prev + 1);
-    console.log(playerWon ? "You Won!" : "You Lost!");
-  }
+    if (newTotal === goal) {
+      setTotalScore(newTotal);
+      setIsGameOver(true);
+      setWon(prev => prev + 1);
+      console.log("You Won!");
+      return; 
+    }
+    if (newTotal < goal) {
+      setTotalScore(newTotal);
+    } 
+    if (attempts <= 0) {
+      setIsGameOver(true);
+      setLost(prev => prev + 1);
+      console.log("You Lost!");
+    }
 
-}, [attempts]);
-
-
-
-  // if (isGameOver) {
-  //   return <GameOver totalScore={totalScore} goal={goal} onReset={handleReset} />;
-  // }
+  // We only want this effect to run when `attempts` changes (a roll completed).
+  // Disabling exhaustive-deps here prevents re-running when we call setTotalScore.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [attempts]);
 
   return (
     <div className='gameArena'>
