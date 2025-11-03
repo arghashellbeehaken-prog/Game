@@ -5,8 +5,6 @@ import Scores from '../../components/scores/Scores';
 import DiceRoller from '../dice/DiceRoller';
 import Visual from '../visual/Visual';
 
-
-
 const GameArena = (props) => {
 
   const {
@@ -24,15 +22,7 @@ const GameArena = (props) => {
   } = props.props;
   
   useEffect(() => {
-    console.log("useEffect ran");
-    console.log("attempts:", attempts);
-    console.log("diceScore:", diceScore);
-    console.log("totalScore:", totalScore);
-    console.log("isGameOver:", isGameOver);
-    console.log("...............");
-
     if (isGameOver || diceScore === 0) return;
-
     const newTotal = totalScore + diceScore;
 
     if (newTotal === goal) {
@@ -50,10 +40,6 @@ const GameArena = (props) => {
       setLost(prev => prev + 1);
       console.log("You Lost!");
     }
-
-  // We only want this effect to run when `attempts` changes (a roll completed).
-  // Disabling exhaustive-deps here prevents re-running when we call setTotalScore.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attempts]);
 
   return (
