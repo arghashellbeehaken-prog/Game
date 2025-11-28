@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import './diceRoller.css';
-import { MAX_DICE_SCORE, MIN_DICE_SCORE, randomGenerator } from '../../utils/Utils';
+import { useState } from "react";
+import "./DiceRoller.css";
+import { MAX_DICE_SCORE, MIN_DICE_SCORE } from "../../utils/constants/commonConstants";
+import { randomGenerator } from "../../utils/functions/commonFunctions";
 
-const DiceRoller = ({ attempts, setDiceScore, setAttempts }) => {
-  
+const DiceRoller = ({ setDiceScore, setAttempts }) => {
   const [die1, setDie1] = useState(0);
   const [die2, setDie2] = useState(0);
   const [rolling, setRolling] = useState(false);
 
   const rollDice = () => {
     setRolling(true);
-    
+
     setTimeout(() => {
       const die1Score = randomGenerator(MIN_DICE_SCORE, MAX_DICE_SCORE);
       const die2Score = randomGenerator(MIN_DICE_SCORE, MAX_DICE_SCORE);
@@ -22,22 +22,19 @@ const DiceRoller = ({ attempts, setDiceScore, setAttempts }) => {
     }, 500);
   };
 
-  
-
-
   return (
     <div className="dice-component">
       <div className="dice-roller">
         <div className="dice-text">Dice</div>
-        <div className={`die ${rolling ? 'rolling' : ''}`}>{die1}</div>
-        <div className={`die ${rolling ? 'rolling' : ''}`}>{die2}</div>
+        <div className={`die ${rolling ? "rolling" : ""}`}>{die1}</div>
+        <div className={`die ${rolling ? "rolling" : ""}`}>{die2}</div>
       </div>
 
       <div className="dice-score-div">
         <div className="dice-score-text">Dice Score</div>
         <div className="die dice-score">{die1 + die2}</div>
         <button onClick={rollDice} disabled={rolling}>
-          {rolling ? 'Rolling...' : 'Roll Dice'}
+          {rolling ? "Rolling..." : "Roll Dice"}
         </button>
       </div>
     </div>

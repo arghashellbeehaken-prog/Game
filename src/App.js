@@ -1,13 +1,10 @@
-
-import './App.css';
-import Game from './sections/game/Game';
-
-
+import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <Game />
+      <Home />
     </div>
   );
 }

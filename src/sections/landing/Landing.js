@@ -1,4 +1,4 @@
-import './landing.css';
+import './Landing.css';
 
 const Landing = ({handleReset}) => {
 

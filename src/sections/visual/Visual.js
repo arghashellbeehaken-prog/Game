@@ -1,4 +1,4 @@
-import './visual.css';
+import './Visual.css';
 
 const renderGoalImages = (goal, totalScore, filledSrc, emptySrc) => {
   return Array.from({ length: goal }, (_, i) => {
