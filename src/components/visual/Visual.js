@@ -1,4 +1,4 @@
-import './Visual.css';
+import "./Visual.css";
 
 const renderGoalImages = (goal, totalScore, filledSrc, emptySrc) => {
   return Array.from({ length: goal }, (_, i) => {
@@ -8,12 +8,11 @@ const renderGoalImages = (goal, totalScore, filledSrc, emptySrc) => {
         key={i}
         src={isFilled ? filledSrc : emptySrc}
         alt="score"
-        className={`visual-image ${isFilled ? 'filled' : ''}`}
+        className={`visual-image ${isFilled ? "filled" : ""}`}
       />
     );
   });
 };
-
 
 const renderAttempts = (attempts, imageSource) => {
   return Array.from({ length: attempts }, (_, i) => (
@@ -23,18 +22,23 @@ const renderAttempts = (attempts, imageSource) => {
 
 const Visual = ({ goal, totalScore, attempts }) => {
   return (
-    <div className='visualDiv'>
-      <div className='scores'>
+    <div className="visualDiv">
+      <div className="scores">
         <h3>Goal Progress:</h3>
         <div className="scores-images">
-          {renderGoalImages(goal, totalScore, 'bp.png', 'wp.png')}
+          {renderGoalImages(
+            goal,
+            totalScore,
+            "/assets/images/goal-completed-image.png",
+            "/assets/images/goal-remaining-image.png"
+          )}
         </div>
       </div>
 
-      <div className='attempts'>
+      <div className="attempts">
         <h3>Attempts Left:</h3>
-        <div className='attempts-images'>
-          {renderAttempts(attempts, 'wq.png')}
+        <div className="attempts-images">
+          {renderAttempts(attempts, "/assets/images/attempts-remaining-image.png")}
         </div>
       </div>
     </div>

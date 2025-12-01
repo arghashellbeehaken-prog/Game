@@ -1,11 +1,11 @@
 import "./GameArena.css";
 import { useEffect } from "react";
 
-import Scores from "../../components/scores/Scores";
+import Scores from "../scores/Scores";
 import DiceRoller from "../dice/DiceRoller";
 import Visual from "../visual/Visual";
 
-const GameArena = (props) => {
+const GameArena = ({ props }) => {
   const {
     goal,
     totalScore,
@@ -18,7 +18,7 @@ const GameArena = (props) => {
     setDiceScore,
     setWon,
     setLost,
-  } = props.props;
+  } = props;
 
   useEffect(() => {
     if (isGameOver || diceScore === 0) return;
@@ -28,7 +28,6 @@ const GameArena = (props) => {
       setTotalScore(newTotal);
       setIsGameOver(true);
       setWon((prev) => prev + 1);
-      console.log("You Won!");
       return;
     }
     if (newTotal < goal) {
@@ -37,9 +36,7 @@ const GameArena = (props) => {
     if (attempts <= 0) {
       setIsGameOver(true);
       setLost((prev) => prev + 1);
-      console.log("You Lost!");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [attempts]);
 
   return (
