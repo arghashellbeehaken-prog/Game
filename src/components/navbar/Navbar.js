@@ -4,7 +4,7 @@ const Navbar = ({ won, lost, setIsAtLanding }) => {
   return (
     <div className="navbar">
       <div className="logo" onClick={() => setIsAtLanding(true)}>
-        <img src="/assets/logo/game-logo.png" alt="game logo" className="logo-image" />
+        <img src="/assets/images/game-logo.png" alt="game logo" className="logo-image" />
         <div className="logo-text">BrainGame</div>
       </div>
       <div className="menu">

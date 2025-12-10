@@ -1,9 +1,9 @@
 import "./GameArena.css";
 import { useEffect } from "react";
 
-import Scores from "../scores/Scores";
-import DiceRoller from "../dice/DiceRoller";
-import Visual from "../visual/Visual";
+import Scores from "../../components/scores/Scores";
+import DiceRoller from "../../components/dice/DiceRoller";
+import Visual from "../../components/visual/Visual";
 
 const GameArena = ({ props }) => {
   const {
@@ -42,9 +42,9 @@ const GameArena = ({ props }) => {
   return (
     <div className="gameArena">
       <div className="game-div">
-        <Scores componentName={"goal"} value={goal} title={"Goal"} />
-        <Scores componentName={"totalScore"} value={totalScore} title={"Total Score"} />
-        <Scores componentName={"attempts"} value={attempts} title={"Attempts Left"} />
+        <Scores customClassName={"goal"} value={goal} title={"Goal"} />
+        <Scores customClassName={"totalScore"} value={totalScore} title={"Total Score"} />
+        <Scores customClassName={"attempts"} value={attempts} title={"Attempts Left"} />
         <div className="dice-roll">
           <DiceRoller attempts={attempts} setDiceScore={setDiceScore} setAttempts={setAttempts} />
         </div>

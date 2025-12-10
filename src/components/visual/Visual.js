@@ -1,44 +1,35 @@
 import "./Visual.css";
 
-const renderGoalImages = (goal, totalScore, filledSrc, emptySrc) => {
-  return Array.from({ length: goal }, (_, i) => {
-    const isFilled = i < totalScore;
-    return (
-      <img
-        key={i}
-        src={isFilled ? filledSrc : emptySrc}
-        alt="score"
-        className={`visual-image ${isFilled ? "filled" : ""}`}
-      />
-    );
-  });
-};
-
-const renderAttempts = (attempts, imageSource) => {
-  return Array.from({ length: attempts }, (_, i) => (
-    <img key={i} src={imageSource} alt="attempt" className="visual-image" />
-  ));
-};
-
 const Visual = ({ goal, totalScore, attempts }) => {
+  const filledSrc = "/assets/images/goal-completed-image.png";
+  const emptySrc = "/assets/images/goal-remaining-image.png";
+  const attemptSrc = "/assets/images/attempts-remaining-image.png";
+
   return (
     <div className="visualDiv">
       <div className="scores">
         <h3>Goal Progress:</h3>
         <div className="scores-images">
-          {renderGoalImages(
-            goal,
-            totalScore,
-            "/assets/images/goal-completed-image.png",
-            "/assets/images/goal-remaining-image.png"
-          )}
+          {Array.from({ length: goal }).map((_, i) => {
+            const isFilled = i < totalScore;
+            return (
+              <img
+                key={i}
+                src={isFilled ? filledSrc : emptySrc}
+                alt="goal-step"
+                className={`visual-image ${isFilled ? "filled" : ""}`}
+              />
+            );
+          })}
         </div>
       </div>
 
       <div className="attempts">
         <h3>Attempts Left:</h3>
         <div className="attempts-images">
-          {renderAttempts(attempts, "/assets/images/attempts-remaining-image.png")}
+          {Array.from({ length: attempts }).map((_, i) => (
+            <img key={i} src={attemptSrc} alt="attempt" className="visual-image" />
+          ))}
         </div>
       </div>
     </div>
